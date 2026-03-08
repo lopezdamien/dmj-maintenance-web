@@ -13,7 +13,7 @@ export default function ContactPage() {
     return (
         <main>
             <Header />
-            <section className="pt-40 pb-8 md:pt-48">
+            <section className="pt-28 pb-8 md:pt-32">
                 <div className="container mx-auto px-6 md:px-8">
                     <SectionHeader
                         subtitle="Contactez-nous"

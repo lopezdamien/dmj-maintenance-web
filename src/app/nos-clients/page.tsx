@@ -14,7 +14,7 @@ export default function NosClients() {
         <main className="min-h-screen">
             <Header />
 
-            <section className="pt-40 pb-12 md:pt-48 md:pb-16 bg-white">
+            <section className="pt-28 pb-10 md:pt-32 md:pb-14 bg-white">
                 <div className="container mx-auto px-6 md:px-8">
                     <SectionHeader
                         subtitle="Références"

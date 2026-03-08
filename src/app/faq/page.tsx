@@ -13,7 +13,7 @@ export default function FAQPage() {
     return (
         <main>
             <Header />
-            <section className="pt-40 pb-8 md:pt-48 bg-primary">
+            <section className="pt-28 pb-8 md:pt-32 bg-primary">
                 <div className="container mx-auto px-6 md:px-8">
                     <SectionHeader
                         subtitle="Obligations légales & entretien"
