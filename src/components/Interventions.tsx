@@ -15,7 +15,7 @@ const interventionTypes = [
 
 export default function Interventions() {
     return (
-        <section id="interventions" className="py-24 bg-gray-50 border-t border-gray-100">
+        <section id="interventions" className="py-14 md:py-24 bg-gray-50 border-t border-gray-100">
             <div className="container mx-auto px-6 md:px-8">
                 <div className="text-center mb-16">
                     <span className="text-accent font-mono tracking-widest uppercase mb-4 block">

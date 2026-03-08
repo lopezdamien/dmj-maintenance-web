@@ -41,7 +41,7 @@ export default function Contact() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="lg:col-span-2 bg-primary text-white px-8 py-16 md:px-12 flex flex-col justify-between gap-12"
+                        className="lg:col-span-2 bg-primary text-white px-8 py-10 md:py-16 md:px-12 flex flex-col justify-between gap-12"
                     >
                         <div>
                             <span className="font-mono text-xs tracking-[0.2em] uppercase text-white/50 block mb-8">
@@ -93,7 +93,7 @@ export default function Contact() {
                             Envoyer une demande
                         </h3>
 
-                        <form className="space-y-7">
+                        <form className="space-y-4 md:space-y-7">
                             {/* Nom + Société */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <Field label="Nom" type="text" placeholder="Jean Dupont" />
@@ -108,7 +108,7 @@ export default function Contact() {
 
                             {/* Type de bâtiment */}
                             <div className="space-y-2">
-                                <label className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                                <label className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400">
                                     Type de bâtiment
                                 </label>
                                 <select className="w-full bg-white border-b-2 border-gray-200 focus:border-primary px-0 py-3 focus:outline-none transition-colors text-secondary text-sm appearance-none cursor-pointer">
@@ -118,7 +118,7 @@ export default function Contact() {
 
                             {/* Request type — chips */}
                             <div className="space-y-3 pt-2">
-                                <label className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400 block">
+                                <label className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400 block">
                                     Je souhaite
                                 </label>
                                 <div className="flex flex-wrap gap-3">
@@ -149,7 +149,7 @@ export default function Contact() {
 
                             {/* Message */}
                             <div className="space-y-2">
-                                <label className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                                <label className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400">
                                     Message
                                 </label>
                                 <textarea
@@ -178,7 +178,7 @@ export default function Contact() {
 function Field({ label, type, placeholder }: { label: string; type: string; placeholder: string }) {
     return (
         <div className="space-y-2">
-            <label className="text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">{label}</label>
+            <label className="text-xs font-bold uppercase tracking-[0.15em] text-gray-400">{label}</label>
             <input
                 type={type}
                 placeholder={placeholder}

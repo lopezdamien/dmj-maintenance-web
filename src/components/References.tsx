@@ -46,7 +46,7 @@ export default function References() {
                 <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
                 <div className="flex gap-16 min-w-[200%] max-w-max animate-[scroll_40s_linear_infinite] px-8">
                     {[...categories, ...categories, ...categories, ...categories, ...categories, ...categories].map((item, idx) => (
-                        <div key={idx} className="flex items-center gap-4 text-gray-400 font-black uppercase text-2xl tracking-widest blur-[1px]">
+                        <div key={idx} className="flex items-center gap-4 text-gray-400 font-black uppercase text-lg md:text-2xl tracking-widest blur-[1px]">
                             {item}
                             <span className="text-accent ms-16">/</span>
                         </div>

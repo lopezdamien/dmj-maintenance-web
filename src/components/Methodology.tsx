@@ -49,7 +49,7 @@ export default function Methodology() {
                     {/* Connecting Line - Vertical (Mobile) */}
                     <div className="md:hidden absolute top-0 bottom-0 left-6 w-px bg-gray-200 z-0"></div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-12 relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-12 relative z-10">
                         {steps.map((step, index) => (
                             <motion.div
                                 key={index}

@@ -15,14 +15,14 @@ export default function About() {
     return (
         <section id="about" className="py-16 md:py-32 bg-white relative overflow-hidden text-secondary">
             <div className="container mx-auto px-4 md:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
                     {/* Image Side - Technical Frame */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                     >
-                        <div className="relative z-10 w-full max-w-md mx-auto aspect-[3/4]">
+                        <div className="relative z-10 w-full max-w-md mx-auto aspect-[4/3] md:aspect-[3/4]">
                             <div className="relative w-full h-full border border-gray-100 bg-gray-50 overflow-hidden">
                                 <Image
                                     src="/images/about_illustration.png"
