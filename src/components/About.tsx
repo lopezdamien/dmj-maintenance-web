@@ -2,88 +2,144 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { CheckSquare, Ruler, Clock, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+
+const values = [
+    { code: "01", label: "Rigueur Suisse & Précision" },
+    { code: "02", label: "Respect des Délais" },
+    { code: "03", label: "Discrétion & Sécurité" },
+    { code: "04", label: "Direction Familiale" },
+];
 
 export default function About() {
-    const values = [
-        { icon: Ruler, text: "Rigueur Suisse & Précision" },
-        { icon: Clock, text: "Respect des Délais" },
-        { icon: ShieldCheck, text: "Discrétion & Sécurité" },
-        { icon: CheckSquare, text: "Direction Familiale" },
-    ];
-
     return (
-        <section id="about" className="py-16 md:py-32 bg-white relative overflow-hidden text-secondary">
-            <div className="container mx-auto px-4 md:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    {/* Image Side - Technical Frame */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <div className="relative z-10 w-full max-w-md mx-auto aspect-[3/4]">
-                            <div className="relative w-full h-full border border-gray-100 bg-gray-50 overflow-hidden">
-                                <Image
-                                    src="/images/about_illustration.png"
-                                    alt="Perica et Darko Kostic - Ingénieurs"
-                                    fill
-                                    className="object-contain p-8"
-                                />
-                            </div>
+        <section id="about" className="py-24 md:py-36 bg-[#080F0A] relative overflow-hidden">
 
-                            {/* 30 Years Badge - Minimalist */}
-                            <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 bg-primary text-white p-5 md:p-6 shadow-none border border-white/20 z-20">
-                                <div className="text-4xl font-black leading-none font-mono tracking-tighter">30</div>
-                                <div className="text-[10px] font-bold uppercase tracking-widest mt-2 opacity-90">Ans d'Excellence</div>
+            {/* Grand "DMJ" en fond */}
+            <div
+                className="absolute -bottom-10 -left-8 select-none pointer-events-none"
+                aria-hidden
+            >
+                <span
+                    className="text-[20vw] font-black leading-none text-[#0F1A10]"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                >
+                    DMJ
+                </span>
+            </div>
+
+            <div className="max-w-screen-xl mx-auto px-6 md:px-10 relative z-10">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+                    {/* Image */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="relative"
+                    >
+                        {/* Badge 30 ans */}
+                        <div className="absolute -top-5 -right-5 z-20 bg-[#4ADE80] text-[#080F0A] p-5">
+                            <div
+                                className="text-4xl font-black leading-none"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                30
                             </div>
+                            <div
+                                className="text-[9px] font-bold uppercase tracking-widest mt-1"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                Ans
+                            </div>
+                        </div>
+
+                        <div className="aspect-[3/4] relative border border-[#4ADE80]/10 overflow-hidden bg-[#0F1A10]">
+                            <Image
+                                src="/images/about_illustration.png"
+                                alt="Perica et Darko Kostic"
+                                fill
+                                className="object-contain p-8 opacity-90"
+                            />
                         </div>
                     </motion.div>
 
-                    {/* Text Side */}
+                    {/* Texte */}
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
+                        initial={{ opacity: 0, x: 30 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="order-1 lg:order-2"
+                        transition={{ duration: 0.7, delay: 0.15 }}
+                        className="flex flex-col gap-10"
                     >
-                        <span className="text-accent font-mono tracking-widest uppercase mb-6 block border-l-4 border-accent pl-4">
-              /// Notre Histoire
-                        </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter mb-8 text-primary uppercase leading-none">
-                            Ingénierie & <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Savoir-Faire.</span>
-                        </h2>
-
-                        <div className="mb-8">
-                            <p className="text-xl md:text-2xl font-medium leading-tight text-secondary mb-6 border-l-4 border-gray-200 pl-6 py-2">
-                                "Nous ne posons pas des gaines. Nous concevons des systèmes de performance aéraulique."
-                            </p>
-                            <p className="text-gray-500 text-lg leading-relaxed font-light">
-                                Fondée par Perica Kostic et dirigée aujourd'hui avec son fils Darko, l'entreprise allie l'expérience du terrain à l'exigence des normes suisses modernes. Nous intervenons là où la précision est non-négociable.
-                            </p>
+                        <div>
+                            <span
+                                className="text-[#4ADE80] text-xs uppercase tracking-[0.3em] mb-6 block"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                /// Notre Histoire
+                            </span>
+                            <h2
+                                className="text-5xl md:text-6xl font-black tracking-tighter leading-none uppercase text-[#F0F7F2]"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                Ingénierie<br />
+                                <span className="text-[#F0F7F2]/20">&</span><br />
+                                Savoir-Faire.
+                            </h2>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6 mb-10">
+                        <blockquote
+                            className="border-l-2 border-[#4ADE80] pl-6 text-[#F0F7F2]/70 text-base md:text-lg leading-relaxed italic"
+                            style={{ fontFamily: 'var(--font-mono)' }}
+                        >
+                            "Nous ne posons pas des gaines. Nous concevons des systèmes de performance aéraulique."
+                        </blockquote>
+
+                        <p
+                            className="text-[#6B8F73] text-sm leading-relaxed"
+                            style={{ fontFamily: 'var(--font-mono)' }}
+                        >
+                            Fondée par Perica Kostic et dirigée aujourd'hui avec son fils Darko, l'entreprise allie l'expérience du terrain à l'exigence des normes suisses modernes. Nous intervenons là où la précision est non-négociable.
+                        </p>
+
+                        {/* Valeurs */}
+                        <div className="grid grid-cols-1 gap-0 border-t border-[#4ADE80]/10">
                             {values.map((item, index) => (
-                                <div key={index} className="flex items-center gap-4 group">
-                                    <div className="w-10 h-10 bg-gray-50 flex items-center justify-center border border-gray-200 group-hover:border-accent transition-colors">
-                                        <item.icon className="text-primary group-hover:text-accent transition-colors" size={20} />
-                                    </div>
-                                    <span className="font-bold text-secondary uppercase text-xs tracking-wide">{item.text}</span>
+                                <div
+                                    key={index}
+                                    className="flex items-center gap-4 py-4 border-b border-[#4ADE80]/10"
+                                >
+                                    <span
+                                        className="text-[#4ADE80]/40 text-xs"
+                                        style={{ fontFamily: 'var(--font-mono)' }}
+                                    >
+                                        {item.code}
+                                    </span>
+                                    <span
+                                        className="text-[#F0F7F2]/70 text-xs uppercase tracking-widest"
+                                        style={{ fontFamily: 'var(--font-mono)' }}
+                                    >
+                                        {item.label}
+                                    </span>
                                 </div>
                             ))}
                         </div>
 
-                        <div>
-                            <a
-                                href="#contact"
-                                className="inline-block bg-secondary text-white hover:bg-primary px-10 py-4 font-bold uppercase tracking-[0.15em] transition-all shadow-lg hover:shadow-xl text-sm"
+                        <Link
+                            href="/contact"
+                            className="group self-start flex items-center gap-4 text-[#F0F7F2]/60 hover:text-[#4ADE80] transition-colors"
+                        >
+                            <span
+                                className="text-xs uppercase tracking-[0.2em]"
+                                style={{ fontFamily: 'var(--font-mono)' }}
                             >
                                 Rencontrer la direction
-                            </a>
-                        </div>
+                            </span>
+                            <span className="w-8 h-px bg-current group-hover:w-12 transition-all" />
+                            <span className="text-lg">→</span>
+                        </Link>
                     </motion.div>
                 </div>
             </div>

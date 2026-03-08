@@ -2,41 +2,26 @@
 
 @theme inline {
   --color-primary: #1E5B3A;
-  --color-secondary: #174A2F;
-  --color-accent: #174A2F;
-  /* Replaced Yellow with Dark Green */
+  --color-secondary: #0F1A10;
+  --color-accent: #4ADE80;
   --color-surface: #E7F2EC;
-  --color-background: #ffffff;
-  --color-foreground: #1C1F1D;
+  --color-background: #080F0A;
+  --color-foreground: #F0F7F2;
+  --color-muted: #6B8F73;
 
-  --font-sans: 'IBM Plex Sans', sans-serif;
-  --font-heading: 'Montserrat', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --font-sans: 'Syne', sans-serif;
 }
 
 :root {
-  /* Green / Institutional Palette */
   --primary: #1E5B3A;
-  /* Brand Green */
-  --secondary: #174A2F;
-  /* Dark Green (Hover/Accents) */
-  --accent: #174A2F;
-  /* Replaced Yellow with Dark Green for precision */
+  --secondary: #0F1A10;
+  --accent: #4ADE80;
   --surface: #E7F2EC;
-  /* Light Green Background */
-
-  --foreground: #1C1F1D;
-  /* Dark Grey/Black Text */
-  --background: #ffffff;
-  /* White */
-
-  --font-ibm-plex: 'IBM Plex Sans', sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #080F0A;
+  --foreground: #F0F7F2;
+  --muted: #6B8F73;
 }
 
 html {
@@ -44,61 +29,54 @@ html {
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-ibm-plex);
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display);
   overflow-x: clip;
 }
 
-/* Force override to ensure Green is visible immediately */
-.bg-primary {
-  background-color: #1E5B3A !important;
+.bg-primary { background-color: #1E5B3A !important; }
+.text-primary { color: #1E5B3A !important; }
+.border-primary { border-color: #1E5B3A !important; }
+
+.bg-secondary { background-color: #0F1A10 !important; }
+.text-secondary { color: #0F1A10 !important; }
+.border-secondary { border-color: #0F1A10 !important; }
+
+.bg-surface { background-color: #E7F2EC !important; }
+.text-surface { color: #E7F2EC !important; }
+.border-surface { border-color: #E7F2EC !important; }
+
+.text-accent { color: #4ADE80 !important; }
+.border-accent { border-color: #4ADE80 !important; }
+.bg-accent { background-color: #4ADE80 !important; }
+
+.text-muted { color: #6B8F73 !important; }
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
 }
 
-.text-primary {
-  color: #1E5B3A !important;
+/* Grid pattern */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(78, 222, 128, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(78, 222, 128, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
 }
 
-.border-primary {
-  border-color: #1E5B3A !important;
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.bg-secondary {
-  background-color: #174A2F !important;
-}
-
-.text-secondary {
-  color: #174A2F !important;
-}
-
-.border-secondary {
-  border-color: #174A2F !important;
-}
-
-.bg-surface {
-  background-color: #E7F2EC !important;
-}
-
-.text-surface {
-  color: #E7F2EC !important;
-}
-
-.border-surface {
-  border-color: #E7F2EC !important;
-}
-
-.text-accent {
-  color: #174A2F !important;
-}
-
-/* Maps to Dark Green now */
-
-.bg-primary-light {
-  background-color: #256e46 !important;
-}
-
-.bg-pattern {
-  background-image: radial-gradient(#1E5B3A 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
-  background-opacity: 0.05;
+.ticker-track {
+  animation: ticker 30s linear infinite;
 }

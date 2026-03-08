@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
@@ -25,23 +25,15 @@ export default function Header() {
     useEffect(() => { setMounted(true); }, []);
 
     useEffect(() => {
-        const handleScroll = () => setIsScrolled(window.scrollY > 20);
+        const handleScroll = () => setIsScrolled(window.scrollY > 40);
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Fermer le menu au changement de route
-    useEffect(() => {
-        setIsMobileMenuOpen(false);
-    }, [pathname]);
+    useEffect(() => { setIsMobileMenuOpen(false); }, [pathname]);
 
-    // Bloquer le scroll du body quand le menu est ouvert
     useEffect(() => {
-        if (isMobileMenuOpen) {
-            document.body.style.overflow = "hidden";
-        } else {
-            document.body.style.overflow = "";
-        }
+        document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
         return () => { document.body.style.overflow = ""; };
     }, [isMobileMenuOpen]);
 
@@ -49,57 +41,58 @@ export default function Header() {
         <AnimatePresence>
             {isMobileMenuOpen && (
                 <motion.div
-                    initial={{ x: "100%" }}
-                    animate={{ x: 0 }}
-                    exit={{ x: "100%" }}
-                    transition={{ type: "tween", duration: 0.3 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                     style={{ position: "fixed", inset: 0, zIndex: 9999 }}
-                    className="bg-primary flex flex-col"
+                    className="bg-[#080F0A] flex flex-col"
                 >
-                    {/* Header du menu */}
-                    <div className="flex justify-between items-center border-b border-white/10 px-6 h-20 shrink-0">
-                        <span className="text-2xl font-bold text-white uppercase tracking-tighter">
-                            DMJ<span className="text-surface">.Maintenance</span>
-                        </span>
+                    <div className="flex justify-between items-center border-b border-[#4ADE80]/10 px-6 h-20 shrink-0">
+                        <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
+                            <span className="text-xl font-bold tracking-tighter text-[#F0F7F2] uppercase" style={{ fontFamily: 'var(--font-display)' }}>
+                                DMJ<span className="text-[#4ADE80]">.</span>
+                            </span>
+                        </Link>
                         <button
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="p-2 text-white hover:text-surface transition-colors rounded-full hover:bg-white/10"
+                            className="p-2 text-[#F0F7F2]/60 hover:text-[#4ADE80] transition-colors"
                             aria-label="Fermer le menu"
                         >
-                            <X size={28} />
+                            <X size={24} strokeWidth={1.5} />
                         </button>
                     </div>
 
-                    {/* Liens de navigation */}
-                    <nav className="flex-1 flex flex-col justify-center items-center gap-6 overflow-y-auto px-8 py-10">
-                        {navLinks.map((link) => {
+                    <nav className="flex-1 flex flex-col justify-center px-8 gap-2">
+                        {navLinks.map((link, i) => {
                             const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
                             return (
-                                <Link
+                                <motion.div
                                     key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                    className={clsx(
-                                        "text-2xl font-bold uppercase tracking-widest transition-colors py-1",
-                                        isActive ? "text-surface" : "text-white hover:text-surface"
-                                    )}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.06 }}
                                 >
-                                    {link.name}
-                                </Link>
+                                    <Link
+                                        href={link.href}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        className={clsx(
+                                            "block text-3xl font-bold uppercase tracking-tighter py-3 border-b border-[#F0F7F2]/5 transition-colors",
+                                            isActive ? "text-[#4ADE80]" : "text-[#F0F7F2]/70 hover:text-[#F0F7F2]"
+                                        )}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </motion.div>
                             );
                         })}
-
-                        <div className="w-12 h-px bg-white/20 my-4" />
-
-                        <Link
-                            href="/contact"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="px-8 py-4 bg-surface text-primary font-bold uppercase tracking-wider hover:bg-white transition-colors flex items-center gap-3 w-full max-w-xs justify-center shadow-lg"
-                        >
-                            <Phone size={20} />
-                            Contactez-nous
-                        </Link>
                     </nav>
+
+                    <div className="px-8 pb-10">
+                        <a href="tel:+41227552255" className="flex items-center gap-3 text-[#6B8F73] text-sm" style={{ fontFamily: 'var(--font-mono)' }}>
+                            <span className="text-[#4ADE80]">+41 22 755 22 55</span>
+                        </a>
+                    </div>
                 </motion.div>
             )}
         </AnimatePresence>
@@ -109,60 +102,68 @@ export default function Header() {
         <>
             <header
                 className={clsx(
-                    "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+                    "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                     isScrolled
-                        ? "bg-primary/95 backdrop-blur-md text-white shadow-sm border-white/5 py-2"
-                        : "bg-primary text-white border-transparent py-3"
+                        ? "bg-[#080F0A]/95 backdrop-blur-md border-b border-[#4ADE80]/10 py-3"
+                        : "bg-transparent border-b border-transparent py-5"
                 )}
             >
-                <div className="container mx-auto px-6 md:px-8 flex justify-between items-center">
-                    {/* Logo */}
-                    <Link href="/" className="flex items-center group">
-                        <span className="text-xl md:text-2xl font-bold tracking-tighter uppercase">
-                            DMJ<span className="text-surface">.Maintenance</span>
+                <div className="max-w-screen-xl mx-auto px-6 md:px-10 flex justify-between items-center">
+                    <Link href="/" className="group flex items-baseline gap-1">
+                        <span className="text-lg font-bold tracking-tighter text-[#F0F7F2] uppercase transition-colors group-hover:text-[#4ADE80]" style={{ fontFamily: 'var(--font-display)' }}>
+                            DMJ
+                        </span>
+                        <span className="text-[#4ADE80] text-lg font-bold">.</span>
+                        <span className="text-[#F0F7F2]/40 text-xs uppercase tracking-widest" style={{ fontFamily: 'var(--font-mono)' }}>
+                            maintenance
                         </span>
                     </Link>
 
-                    {/* Navigation desktop */}
-                    <nav className="hidden md:flex items-center gap-5 lg:gap-8">
-                        {navLinks.map((link) => {
-                            const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                    <nav className="hidden md:flex items-center gap-8">
+                        {navLinks.filter(l => l.href !== "/").map((link) => {
+                            const isActive = pathname.startsWith(link.href);
                             return (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-xs lg:text-sm font-semibold uppercase tracking-widest hover:text-surface/80 transition-colors relative group"
+                                    className={clsx(
+                                        "text-[11px] uppercase tracking-widest transition-colors relative",
+                                        isActive
+                                            ? "text-[#4ADE80]"
+                                            : "text-[#F0F7F2]/50 hover:text-[#F0F7F2]"
+                                    )}
+                                    style={{ fontFamily: 'var(--font-mono)' }}
                                 >
                                     {link.name}
-                                    <span className={clsx(
-                                        "absolute -bottom-1 left-0 h-0.5 bg-surface transition-all duration-300",
-                                        isActive ? "w-full" : "w-0 group-hover:w-full"
-                                    )} />
+                                    {isActive && (
+                                        <motion.span
+                                            layoutId="nav-indicator"
+                                            className="absolute -bottom-1 left-0 right-0 h-px bg-[#4ADE80]"
+                                        />
+                                    )}
                                 </Link>
                             );
                         })}
 
                         <Link
                             href="/contact"
-                            className="flex items-center gap-2 px-4 lg:px-6 py-2 border border-surface text-surface font-bold uppercase tracking-wide text-xs hover:bg-surface hover:text-primary transition-all rounded-md whitespace-nowrap ml-2"
+                            className="px-5 py-2 border border-[#4ADE80]/30 text-[#4ADE80] text-[11px] uppercase tracking-widest hover:bg-[#4ADE80] hover:text-[#080F0A] transition-all duration-200 font-bold"
+                            style={{ fontFamily: 'var(--font-mono)' }}
                         >
-                            <Phone size={14} />
-                            <span>Contact</span>
+                            Contact
                         </Link>
                     </nav>
 
-                    {/* Bouton menu mobile */}
                     <button
-                        className="md:hidden p-2 text-white hover:bg-white/10 rounded transition-colors"
+                        className="md:hidden p-2 text-[#F0F7F2]/60 hover:text-[#4ADE80] transition-colors"
                         onClick={() => setIsMobileMenuOpen(true)}
                         aria-label="Ouvrir le menu"
                     >
-                        <Menu size={24} />
+                        <Menu size={22} strokeWidth={1.5} />
                     </button>
                 </div>
             </header>
 
-            {/* Menu mobile rendu dans le body via portal */}
             {mounted && createPortal(mobileMenu, document.body)}
         </>
     );

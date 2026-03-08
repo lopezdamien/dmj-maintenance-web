@@ -2,92 +2,155 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Wind } from "lucide-react";
-import Image from "next/image";
+
+const norms = ["RSEE", "OCOSP", "SUVA", "SWKI", "CVC", "MAINTENANCE", "GENÈVE", "SUISSE"];
 
 export default function Hero() {
     return (
-        <section className="relative min-h-svh flex items-start lg:items-center bg-primary text-white overflow-hidden pt-28 pb-20 md:pt-32 md:pb-24 lg:pt-20 lg:pb-0">
-            {/* Background with Overlay */}
-            <div className="absolute inset-0 z-0">
-                <Image
-                    src="/hero-bg.jpg"
-                    alt="Ventilation System"
-                    fill
-                    className="object-cover opacity-20 mix-blend-overlay"
-                    priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#1E5B3A] via-[#1E5B3A]/95 to-[#1E5B3A]/80" />
+        <section className="relative min-h-svh bg-[#080F0A] text-[#F0F7F2] overflow-hidden grid-bg flex flex-col">
+
+            {/* Fond : grand "30" typographique */}
+            <div
+                className="absolute right-0 top-1/2 -translate-y-1/2 select-none pointer-events-none"
+                aria-hidden
+            >
+                <span
+                    className="text-[28vw] font-black leading-none text-[#0F1A10]"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                >
+                    30
+                </span>
             </div>
 
-            <div className="container mx-auto px-6 md:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Content */}
-                <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="space-y-8 md:space-y-10"
-                >
-                    <div className="border-l-2 border-surface/50 pl-6">
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none uppercase">
-                            Ventilation<br />
-                            Entretien<br />
-                            <span className="text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl">& Maintenance</span>
-                        </h1>
-                    </div>
+            {/* Ligne verticale décorative */}
+            <div className="absolute left-[14%] top-0 bottom-0 w-px bg-[#4ADE80]/5 hidden lg:block" />
 
-                    <p className="text-base md:text-lg text-white/85 max-w-lg font-light leading-relaxed">
-                        La réglementation impose des obligations strictes d'entretien et de contrôle des installations CVC. Nous appliquons les normes en vigueur — RSEE, OCOSP, directives cantonales — pour garantir la conformité légale, la sécurité des occupants et la performance durable de vos équipements.
-                    </p>
+            {/* Contenu principal */}
+            <div className="flex-1 flex flex-col justify-center max-w-screen-xl mx-auto px-6 md:px-10 w-full pt-32 pb-16">
 
-                    <div>
-                        <Link
-                            href="/contact"
-                            className="inline-block px-8 py-4 bg-surface text-primary font-bold uppercase tracking-widest hover:bg-white transition-all text-center text-sm"
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+                    {/* Colonne texte */}
+                    <div className="lg:col-span-8">
+
+                        {/* Tag */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="flex items-center gap-3 mb-10"
                         >
-                            Contactez-nous
-                        </Link>
+                            <div className="w-2 h-2 rounded-full bg-[#4ADE80]" />
+                            <span
+                                className="text-[#4ADE80] text-xs uppercase tracking-[0.3em]"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                Versoix · Genève · Suisse
+                            </span>
+                        </motion.div>
+
+                        {/* Titre principal */}
+                        <div className="overflow-hidden mb-4">
+                            <motion.h1
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-[15vw] md:text-[11vw] lg:text-[9vw] font-black leading-none uppercase tracking-tighter text-[#F0F7F2]"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                Maintenance
+                            </motion.h1>
+                        </div>
+                        <div className="overflow-hidden mb-4">
+                            <motion.h1
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-[15vw] md:text-[11vw] lg:text-[9vw] font-black leading-none uppercase tracking-tighter text-[#F0F7F2]/20"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                Ventilation
+                            </motion.h1>
+                        </div>
+                        <div className="overflow-hidden">
+                            <motion.h1
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-[15vw] md:text-[11vw] lg:text-[9vw] font-black leading-none uppercase tracking-tighter text-[#4ADE80]"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                CVC.
+                            </motion.h1>
+                        </div>
                     </div>
-                </motion.div>
 
-                {/* Technical Illustration — desktop only */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1 }}
-                    className="relative hidden lg:block"
-                >
-                    <div className="relative w-full aspect-square max-w-lg mx-auto">
-                        <div className="absolute inset-0 border border-white/5 rounded-full animate-[spin_60s_linear_infinite]" />
-                        <div className="absolute inset-8 border border-white/5 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                            <div className="w-64 h-64 bg-secondary/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/5">
-                                <div className="text-center">
-                                    <Wind size={48} className="text-surface mx-auto mb-4 opacity-60" />
-                                    <span className="block text-xl font-bold tracking-tighter text-white/90">MAINTENANCE<br />PRO</span>
-                                </div>
+                    {/* Colonne chiffres / infos */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="lg:col-span-4 flex flex-col gap-8 lg:border-l lg:border-[#4ADE80]/10 lg:pl-10"
+                    >
+                        <div>
+                            <div
+                                className="text-6xl font-black text-[#F0F7F2]"
+                                style={{ fontFamily: 'var(--font-display)' }}
+                            >
+                                30
+                            </div>
+                            <div
+                                className="text-[#6B8F73] text-xs uppercase tracking-widest mt-1"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                Ans d'excellence
                             </div>
                         </div>
 
-                        <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                            className="absolute top-4 right-12 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2">
-                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Performance</span>
-                        </motion.div>
-                        <motion.div animate={{ y: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-                            className="absolute bottom-12 left-4 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2">
-                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Hygiène</span>
-                        </motion.div>
-                        <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.5 }}
-                            className="absolute top-1/4 left-0 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2">
-                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">SLA</span>
-                        </motion.div>
-                        <motion.div animate={{ x: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 1.5 }}
-                            className="absolute bottom-1/4 right-0 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2">
-                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Rapport</span>
-                        </motion.div>
-                    </div>
-                </motion.div>
+                        <div className="w-full h-px bg-[#4ADE80]/10" />
+
+                        <div>
+                            <p
+                                className="text-[#F0F7F2]/60 text-sm leading-relaxed"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                La réglementation impose des obligations strictes d'entretien CVC. Nous garantissons votre conformité RSEE, OCOSP et SWKI.
+                            </p>
+                        </div>
+
+                        <div className="w-full h-px bg-[#4ADE80]/10" />
+
+                        <Link
+                            href="/contact"
+                            className="group flex items-center gap-4 text-[#F0F7F2] hover:text-[#4ADE80] transition-colors"
+                        >
+                            <span
+                                className="text-xs uppercase tracking-[0.2em] font-bold"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                Demander un devis
+                            </span>
+                            <span className="flex-1 h-px bg-current opacity-30 group-hover:opacity-100 transition-opacity" />
+                            <span className="text-lg">→</span>
+                        </Link>
+                    </motion.div>
+                </div>
+            </div>
+
+            {/* Ticker bas */}
+            <div className="border-t border-[#4ADE80]/10 overflow-hidden py-4">
+                <div className="ticker-track flex gap-12 whitespace-nowrap w-max">
+                    {[...norms, ...norms].map((norm, i) => (
+                        <span
+                            key={i}
+                            className="text-[#6B8F73] text-xs uppercase tracking-[0.3em] flex items-center gap-4"
+                            style={{ fontFamily: 'var(--font-mono)' }}
+                        >
+                            {norm}
+                            <span className="w-1 h-1 rounded-full bg-[#4ADE80]/40 inline-block" />
+                        </span>
+                    ))}
+                </div>
             </div>
         </section>
     );

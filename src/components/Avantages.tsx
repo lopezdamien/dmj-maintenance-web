@@ -1,35 +1,50 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, FileText, Award, Activity } from "lucide-react";
 
-const avantages = [
-    { icon: Zap, title: "Intervention rapide" },
-    { icon: FileText, title: "Rapport détaillé" },
-    { icon: Award, title: "Équipes certifiées" },
-    { icon: Activity, title: "Suivi technique" }
+const stats = [
+    { value: "30", unit: "ans", label: "D'expertise terrain" },
+    { value: "24h", unit: "", label: "Réponse garantie" },
+    { value: "100%", unit: "", label: "Conformité RSEE" },
+    { value: "500+", unit: "", label: "Sites maintenus" },
 ];
 
 export default function Avantages() {
     return (
-        <section className="py-16 bg-white border-b border-gray-100">
-            <div className="container mx-auto px-6 md:px-8">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                    {avantages.map((item, index) => (
+        <section className="bg-[#080F0A] border-b border-[#4ADE80]/10">
+            <div className="max-w-screen-xl mx-auto">
+                <div className="grid grid-cols-2 lg:grid-cols-4">
+                    {stats.map((stat, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="flex flex-col items-center text-center gap-4"
+                            className="px-8 py-12 border-r border-b lg:border-b-0 border-[#4ADE80]/10 last:border-r-0 group"
                         >
-                            <div className="w-16 h-16 bg-gray-50 flex items-center justify-center border border-gray-100 rounded-sm">
-                                <item.icon className="text-primary" size={28} />
+                            <div className="flex items-baseline gap-1 mb-3">
+                                <span
+                                    className="text-5xl md:text-6xl font-black text-[#F0F7F2] leading-none group-hover:text-[#4ADE80] transition-colors duration-300"
+                                    style={{ fontFamily: 'var(--font-display)' }}
+                                >
+                                    {stat.value}
+                                </span>
+                                {stat.unit && (
+                                    <span
+                                        className="text-xl font-bold text-[#6B8F73]"
+                                        style={{ fontFamily: 'var(--font-display)' }}
+                                    >
+                                        {stat.unit}
+                                    </span>
+                                )}
                             </div>
-                            <h3 className="font-bold text-secondary uppercase text-sm tracking-wide">
-                                {item.title}
-                            </h3>
+                            <p
+                                className="text-[#6B8F73] text-xs uppercase tracking-widest"
+                                style={{ fontFamily: 'var(--font-mono)' }}
+                            >
+                                {stat.label}
+                            </p>
                         </motion.div>
                     ))}
                 </div>
