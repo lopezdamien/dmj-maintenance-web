@@ -20,7 +20,7 @@ export default function SectionHeader({ subtitle, title, description, dark = fal
                 <span className={`font-mono tracking-widest uppercase text-sm block mb-4 ${dark ? 'text-white/60' : 'text-primary/60'}`}>
                     /// {subtitle}
                 </span>
-                <h1 className={`text-4xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none ${dark ? 'text-white' : 'text-primary'}`}>
+                <h1 className={`text-3xl md:text-5xl lg:text-6xl font-black tracking-tight uppercase leading-none ${dark ? 'text-white' : 'text-primary'}`}>
                     {title}
                 </h1>
             </motion.div>
@@ -30,7 +30,7 @@ export default function SectionHeader({ subtitle, title, description, dark = fal
                     animate={{ opacity: 1, x: 0 }}
                     className="max-w-md"
                 >
-                    <p className={`text-lg font-light leading-relaxed ${dark ? 'text-white/70' : 'text-primary/70'}`}>
+                    <p className={`text-base md:text-lg font-light leading-relaxed ${dark ? 'text-white/70' : 'text-primary/70'}`}>
                         {description}
                     </p>
                 </motion.div>

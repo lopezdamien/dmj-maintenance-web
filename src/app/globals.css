@@ -41,14 +41,13 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-ibm-plex);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* Force override to ensure Green is visible immediately */

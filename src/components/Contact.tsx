@@ -20,7 +20,7 @@ export default function Contact() {
                         <span className="text-accent font-mono tracking-widest uppercase mb-6 block border-l-4 border-accent pl-4">
                             /// Contact
                         </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter text-primary uppercase leading-tight mb-8">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tighter text-primary uppercase leading-tight mb-8">
                             Parlons de votre <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Installation.</span>
                         </h2>

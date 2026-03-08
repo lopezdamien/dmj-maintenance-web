@@ -30,7 +30,7 @@ export default function Process() {
                     {/* Vertical connector line on mobile */}
                     <div className="md:hidden absolute top-0 bottom-0 left-8 w-px bg-white/20 z-0"></div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
                         {steps.map((step, index) => (
                             <motion.div
                                 key={index}
@@ -45,12 +45,12 @@ export default function Process() {
                                     <div className="hidden md:block absolute top-8 left-[60%] w-[80%] h-px bg-white/20"></div>
                                 )}
 
-                                <div className="flex flex-col gap-6">
-                                    <div className="w-16 h-16 rounded-full border border-surface flex items-center justify-center bg-primary text-surface font-mono text-xl relative z-10 shadow-[0_0_15px_rgba(46,204,113,0.15)]">
+                                <div className="flex md:flex-col flex-row gap-6 items-start md:items-start">
+                                    <div className="w-16 h-16 rounded-full border border-surface flex items-center justify-center bg-primary text-surface font-mono text-xl relative z-10 shadow-[0_0_15px_rgba(46,204,113,0.15)] shrink-0">
                                         {step.num}
                                     </div>
 
-                                    <div>
+                                    <div className="flex items-center md:items-start">
                                         <h3 className="text-lg font-bold uppercase tracking-wide text-white/90">
                                             {step.title}
                                         </h3>
