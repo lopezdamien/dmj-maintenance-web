@@ -31,8 +31,8 @@ export default function Hero() {
                     <div className="border-l-2 border-surface/50 pl-6">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none uppercase">
                             Ventilation<br />
-                            Entretien<br />
-                            <span className="text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl">& Maintenance</span>
+                            Maintenance<br />
+                            <span className="text-surface text-4xl sm:text-5xl md:text-6xl lg:text-7xl">& Entretien</span>
                         </h1>
                     </div>
 
