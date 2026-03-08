@@ -6,7 +6,7 @@ import FAQ from "@/components/FAQ";
 
 export const metadata: Metadata = {
     title: "FAQ | DMJ Maintenance",
-    description: "Fréquence de maintenance, tarifs, urgences 24/7, rapports d'intervention, zone géographique — toutes vos questions sur nos services de maintenance CVC.",
+    description: "Pourquoi entretenir ses gaines ? Quelles obligations légales en Suisse ? Fréquences, responsabilités, rapports — toutes vos questions sur la maintenance CVC.",
 };
 
 export default function FAQPage() {
@@ -16,9 +16,9 @@ export default function FAQPage() {
             <section className="pt-40 pb-8 md:pt-48 bg-primary">
                 <div className="container mx-auto px-6 md:px-8">
                     <SectionHeader
-                        subtitle="Questions fréquentes"
-                        title={<>Foire Aux<br />Questions</>}
-                        description="Tout ce que vous devez savoir sur nos contrats, interventions et modalités de service."
+                        subtitle="Obligations légales & entretien"
+                        title={<>Pourquoi entretenir<br />ses installations ?</>}
+                        description="Les réponses aux questions essentielles sur les obligations légales de maintenance en Suisse."
                         dark
                     />
                 </div>

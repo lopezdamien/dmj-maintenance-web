@@ -3,26 +3,32 @@ import Hero from "@/components/Hero";
 import Avantages from "@/components/Avantages";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, FileText, Wrench, ClipboardList } from "lucide-react";
+import { ArrowRight, Users, HelpCircle, Mail, Wrench } from "lucide-react";
 
 const ctaLinks = [
     {
-        icon: FileText,
-        label: "Contrats",
-        description: "Essentiel, Pro, Premium — maintenance planifiée pour vos installations.",
-        href: "/contrats",
-    },
-    {
         icon: Wrench,
-        label: "Interventions",
-        description: "Dépannage, remplacement, remise en conformité — on intervient vite.",
-        href: "/interventions",
+        label: "Comment nous travaillons",
+        description: "Qui nous sommes, notre process en 5 étapes et nos certifications.",
+        href: "/comment-nous-travaillons",
     },
     {
-        icon: ClipboardList,
-        label: "Notre Méthode",
-        description: "Audit, plan, intervention, rapport, suivi — un process rigoureux.",
-        href: "/methode",
+        icon: Users,
+        label: "Nos clients",
+        description: "Régies, hôtellerie, restauration, retail, industrie — découvrez nos références.",
+        href: "/nos-clients",
+    },
+    {
+        icon: HelpCircle,
+        label: "FAQ",
+        description: "Pourquoi entretenir ses gaines ? Quelles obligations légales en Suisse ?",
+        href: "/faq",
+    },
+    {
+        icon: Mail,
+        label: "Contact",
+        description: "Demandez un devis ou planifiez une visite technique.",
+        href: "/contact",
     },
 ];
 
@@ -36,7 +42,7 @@ export default function Home() {
             {/* Navigation CTA strip */}
             <section className="py-20 bg-gray-50 border-t border-gray-100">
                 <div className="container mx-auto px-6 md:px-8">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {ctaLinks.map((item) => (
                             <Link
                                 key={item.href}

@@ -16,8 +16,8 @@ export default function ContactPage() {
             <section className="pt-40 pb-8 md:pt-48">
                 <div className="container mx-auto px-6 md:px-8">
                     <SectionHeader
-                        subtitle="Parlons de votre installation"
-                        title={<>Devis &<br />Contact</>}
+                        subtitle="Contactez-nous"
+                        title={<>Prenons<br />contact.</>}
                         description="Devis gratuit sous 24h. Pour les urgences, notre équipe est disponible 24h/24, 7j/7."
                     />
                 </div>

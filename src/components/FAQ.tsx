@@ -6,28 +6,28 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
     {
-        question: "Quelle fréquence de maintenance ?",
-        answer: "La fréquence dépend de votre installation et de votre secteur d'activité. Pour les restaurants, une maintenance tous les 3 à 6 mois est recommandée. Pour l'industrie ou les immeubles de bureaux, 1 à 2 fois par an suffisent souvent."
+        question: "Pourquoi suis-je obligé d'entretenir mes gaines de ventilation ?",
+        answer: "En Suisse, l'entretien des installations de ventilation et de climatisation est une obligation légale. Le Règlement sur les économies d'énergie (RSEE) impose des contrôles périodiques des installations thermiques et aérauliques. Les cantons appliquent ces exigences via leurs services de l'énergie. En cas de non-conformité, l'exploitant est directement responsable."
     },
     {
-        question: "Quel prix pour un contrat ?",
-        answer: "Le prix varie selon la taille et la complexité de votre réseau de ventilation ainsi que les options choisies (ESSENTIEL, PRO, PREMIUM). Contactez-nous pour obtenir un devis personnalisé gratuitement."
+        question: "Quelles normes légales s'appliquent en Suisse ?",
+        answer: "Plusieurs réglementations encadrent l'entretien des systèmes CVC : le RSEE (Règlement sur les économies d'énergie), l'OCOSP (Ordonnance sur la sécurité des installations), les directives cantonales genevois (LDTR, MCE), ainsi que les normes techniques SWKI (ex. SWKI VA104-01 pour les gaines d'air). Les exigences varient selon le type de bâtiment et l'usage."
     },
     {
-        question: "Intervenez-vous en urgence ?",
-        answer: "Oui, notre équipe intervient 24h/24 et 7j/7 pour les urgences. Les clients bénéficiant d'un contrat PREMIUM ont d'ailleurs une priorité d'intervention garantie."
+        question: "À quelle fréquence dois-je faire entretenir mes installations ?",
+        answer: "La fréquence dépend de l'usage et du type d'installation. Pour la restauration professionnelle, un entretien tous les 3 à 6 mois est généralement requis. Pour les immeubles d'habitation, bureaux ou commerces, 1 à 2 visites par an suffisent dans la plupart des cas. Nous réalisons un audit initial pour déterminer la fréquence adaptée à votre situation."
     },
     {
-        question: "Recevons-nous un rapport ?",
-        answer: "Absolument. Chaque intervention se conclut par la remise d'un rapport PDF détaillé incluant les actions menées, l'état de l'installation et nos recommandations."
+        question: "Que risque-t-on en cas de non-conformité ?",
+        answer: "Le non-respect des obligations d'entretien expose à plusieurs risques : amendes administratives de la part des autorités cantonales, mise en demeure d'exploiter, responsabilité civile en cas d'incendie ou d'accident lié à l'installation, refus de couverture par l'assurance, et dans les établissements accueillant du public, suspension de l'autorisation d'exploitation."
     },
     {
-        question: "Quelle zone couvrez-vous ?",
-        answer: "Nous couvrons l'ensemble de la région genevoise, ainsi que le canton de Vaud jusqu'à Lausanne, pour garantir une réactivité maximale."
+        question: "Qui est responsable : le propriétaire ou l'exploitant ?",
+        answer: "La responsabilité dépend des dispositions contractuelles entre propriétaire et locataire/exploitant. En règle générale, le propriétaire est responsable du bon état de l'installation, tandis que l'exploitant (restaurant, commerce) est responsable de l'entretien courant lié à son activité. En cas de doute, nous vous recommandons de formaliser cette répartition dans le bail."
     },
     {
-        question: "Peut-on commencer par un audit ?",
-        answer: "Tout à fait. Avant de souscrire un contrat, nous pouvons réaliser un audit technique complet de vos installations pour déterminer le niveau de maintenance nécessaire."
+        question: "Que contient un rapport de maintenance ?",
+        answer: "Chaque intervention donne lieu à un rapport PDF complet incluant : l'état visuel et technique des gaines, filtres et équipements, les mesures de débit réalisées, les actions effectuées (nettoyage, remplacement, réglage), les anomalies constatées et les recommandations, ainsi qu'un récapitulatif daté et signé conforme aux exigences réglementaires."
     }
 ];
 

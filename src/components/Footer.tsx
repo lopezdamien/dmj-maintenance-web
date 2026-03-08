@@ -25,11 +25,10 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-surface uppercase tracking-widest text-xs mb-6">Navigation</h4>
                         <ul className="space-y-4">
-                            <li><Link href="/contrats" className="text-white/70 hover:text-white transition-colors text-sm">Contrats</Link></li>
-                            <li><Link href="/interventions" className="text-white/70 hover:text-white transition-colors text-sm">Interventions</Link></li>
-                            <li><Link href="/methode" className="text-white/70 hover:text-white transition-colors text-sm">Notre Méthode</Link></li>
-                            <li><Link href="/references" className="text-white/70 hover:text-white transition-colors text-sm">Références</Link></li>
+                            <li><Link href="/comment-nous-travaillons" className="text-white/70 hover:text-white transition-colors text-sm">Comment nous travaillons</Link></li>
+                            <li><Link href="/nos-clients" className="text-white/70 hover:text-white transition-colors text-sm">Nos clients</Link></li>
                             <li><Link href="/faq" className="text-white/70 hover:text-white transition-colors text-sm">FAQ</Link></li>
+                            <li><Link href="/contact" className="text-white/70 hover:text-white transition-colors text-sm">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -54,7 +53,7 @@ export default function Footer() {
                             </li>
                             <li className="pt-4">
                                 <Link href="/contact" className="font-bold text-surface uppercase tracking-widest text-xs hover:text-white transition-colors">
-                                    Demander un devis →
+                                    Contactez-nous →
                                 </Link>
                             </li>
                         </ul>

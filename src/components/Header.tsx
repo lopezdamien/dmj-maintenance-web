@@ -10,10 +10,9 @@ import clsx from "clsx";
 
 const navLinks = [
     { name: "Accueil", href: "/" },
-    { name: "Contrats", href: "/contrats" },
-    { name: "Interventions", href: "/interventions" },
-    { name: "Méthode", href: "/methode" },
-    { name: "Références", href: "/references" },
+    { name: "Comment nous travaillons", href: "/comment-nous-travaillons" },
+    { name: "Nos clients", href: "/nos-clients" },
+    { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" },
 ];
 
@@ -98,15 +97,8 @@ export default function Header() {
                             className="px-8 py-4 bg-surface text-primary font-bold uppercase tracking-wider hover:bg-white transition-colors flex items-center gap-3 w-full max-w-xs justify-center shadow-lg"
                         >
                             <Phone size={20} />
-                            Devis Gratuit
+                            Contactez-nous
                         </Link>
-
-                        <a
-                            href="tel:+41227552255"
-                            className="text-sm text-white/60 hover:text-surface transition-colors tracking-widest uppercase font-semibold"
-                        >
-                            Urgence 24/7
-                        </a>
                     </nav>
                 </motion.div>
             )}
@@ -150,18 +142,13 @@ export default function Header() {
                             );
                         })}
 
-                        <div className="flex flex-col items-center gap-1 ml-2">
-                            <Link
-                                href="/contact"
-                                className="flex items-center gap-2 px-4 lg:px-6 py-2 border border-surface text-surface font-bold uppercase tracking-wide text-xs hover:bg-surface hover:text-primary transition-all rounded-md whitespace-nowrap"
-                            >
-                                <Phone size={14} />
-                                <span>Devis Gratuit</span>
-                            </Link>
-                            <Link href="/contact" className="text-[10px] text-white/70 hover:text-surface transition-colors tracking-widest uppercase font-semibold">
-                                Urgence 24/7
-                            </Link>
-                        </div>
+                        <Link
+                            href="/contact"
+                            className="flex items-center gap-2 px-4 lg:px-6 py-2 border border-surface text-surface font-bold uppercase tracking-wide text-xs hover:bg-surface hover:text-primary transition-all rounded-md whitespace-nowrap ml-2"
+                        >
+                            <Phone size={14} />
+                            <span>Contact</span>
+                        </Link>
                     </nav>
 
                     {/* Bouton menu mobile */}
