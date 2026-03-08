@@ -29,32 +29,23 @@ export default function Hero() {
                     className="space-y-8 md:space-y-10"
                 >
                     <div className="border-l-2 border-surface/50 pl-6">
-                        <span className="text-surface font-mono tracking-widest uppercase text-xs md:text-sm block mb-2 opacity-90">
-                            Maintenance Pro
-                        </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-none uppercase">
-                            Maintenance<br />
                             Ventilation<br />
-                            <span className="text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl">& CVC</span>
+                            Entretien<br />
+                            <span className="text-surface text-3xl sm:text-4xl md:text-5xl lg:text-6xl">& Maintenance</span>
                         </h1>
                     </div>
 
                     <p className="text-base md:text-lg text-white/85 max-w-lg font-light leading-relaxed">
-                        Contrats de maintenance, nettoyage des réseaux, remplacement de filtres et dépannage rapide pour restaurants, hôtels, commerces, régies et industries.
+                        La réglementation impose des obligations strictes d'entretien et de contrôle des installations CVC. Nous appliquons les normes en vigueur — RSEE, OCOSP, directives cantonales — pour garantir la conformité légale, la sécurité des occupants et la performance durable de vos équipements.
                     </p>
 
-                    <div className="flex flex-col sm:flex-row gap-4">
+                    <div>
                         <Link
                             href="/contact"
-                            className="px-8 py-4 bg-surface text-primary font-bold uppercase tracking-widest hover:bg-white transition-all text-center text-sm"
+                            className="inline-block px-8 py-4 bg-surface text-primary font-bold uppercase tracking-widest hover:bg-white transition-all text-center text-sm"
                         >
-                            Demander un devis
-                        </Link>
-                        <Link
-                            href="/contact"
-                            className="px-8 py-4 border border-surface text-surface font-bold uppercase tracking-widest hover:bg-surface hover:text-primary transition-all text-center text-sm"
-                        >
-                            Planifier une visite
+                            Contactez-nous
                         </Link>
                     </div>
                 </motion.div>
