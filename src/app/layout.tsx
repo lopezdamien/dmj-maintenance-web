@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Syne, DM_Mono } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-display",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-ibm-plex",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const dmMono = DM_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -27,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="scroll-smooth">
-      <body className={`${syne.variable} ${dmMono.variable} font-sans antialiased`}>
+      <body
+        className={`${ibmPlexSans.variable} font-sans antialiased`}
+      >
         {children}
       </body>
     </html>

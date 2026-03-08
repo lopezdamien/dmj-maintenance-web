@@ -1,139 +1,94 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
-
-const services = [
-    {
-        num: "01",
-        title: "Maintenance",
-        label: "Préventive",
-        description: "Entretien préventif, nettoyage de gaines et remplacement de filtres selon les normes RSEE et OCOSP.",
-    },
-    {
-        num: "02",
-        title: "Installation",
-        label: "Mise en œuvre",
-        description: "Pose de réseaux de ventilation, monoblocs et systèmes de climatisation par nos experts certifiés.",
-    },
-    {
-        num: "03",
-        title: "Optimisation",
-        label: "Performance",
-        description: "Audit énergétique, réglage des débits et équilibrage des réseaux pour réduire votre consommation.",
-    },
-    {
-        num: "04",
-        title: "Ingénierie",
-        label: "Conception",
-        description: "Dimensionnement, plans techniques et calculs de débit pour une installation optimale dès la conception.",
-    },
-];
+import { Fan, PenTool, Wrench, BarChart3, Wind } from "lucide-react";
+import Image from "next/image";
 
 export default function Services() {
-    return (
-        <section id="services" className="py-24 md:py-36 bg-[#080F0A]">
-            <div className="max-w-screen-xl mx-auto px-6 md:px-10">
+    const services = [
+        {
+            title: "Études & Conception",
+            description: "Dimensionnement, plans techniques et calculs de débit pour une installation optimale.",
+            icon: PenTool,
+            image: "/services/etude.jpg",
+            label: "Ingénierie"
+        },
+        {
+            title: "Installation",
+            description: "Pose de réseaux de ventilation, monoblocs et systèmes de climatisation par nos experts.",
+            icon: Wrench,
+            image: "/services/installation.jpg",
+            label: "Mise en œuvre"
+        },
+        {
+            title: "Maintenance",
+            description: "Entretien préventif, nettoyage de gaines et remplacement de filtres.",
+            icon: Fan,
+            image: "/services/maintenance.jpg",
+            label: "Suivi"
+        },
+        {
+            title: "Optimisation",
+            description: "Audit énergétique et réglage pour réduire votre consommation.",
+            icon: BarChart3,
+            image: "/services/optimisation.jpg",
+            label: "Performance"
+        }
+    ];
 
-                {/* Header section */}
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 pb-10 border-b border-[#4ADE80]/10">
-                    <div>
-                        <span
-                            className="text-[#4ADE80] text-xs uppercase tracking-[0.3em] mb-4 block"
-                            style={{ fontFamily: 'var(--font-mono)' }}
-                        >
-                            /// Savoir-faire
+    return (
+        <section id="services" className="py-12 md:py-32 bg-white text-secondary">
+            <div className="container mx-auto px-6 md:px-8">
+
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-24 gap-6 md:gap-12 border-b border-gray-100 pb-8 md:pb-12 text-center md:text-left">
+                    <div className="max-w-2xl">
+                        <span className="text-gray-400 font-mono tracking-widest uppercase mb-4 block text-xs">
+                    /// Savoir-faire
                         </span>
-                        <h2
-                            className="text-5xl md:text-7xl font-black tracking-tighter leading-none uppercase text-[#F0F7F2]"
-                            style={{ fontFamily: 'var(--font-display)' }}
-                        >
-                            Solutions<br />
-                            <span className="text-[#F0F7F2]/20">Techniques</span>
+                        <h2 className="text-4xl md:text-6xl font-black tracking-tighter text-primary uppercase leading-none">
+                            Solutions<br />Techniques
                         </h2>
                     </div>
-                    <p
-                        className="text-[#6B8F73] text-sm leading-relaxed max-w-xs md:text-right"
-                        style={{ fontFamily: 'var(--font-mono)' }}
-                    >
-                        De l'installation à l'optimisation, nous intervenons sur l'ensemble du cycle de vie de vos systèmes CVC.
-                    </p>
+                    <div className="max-w-lg">
+                        <p className="text-base font-light text-gray-500 leading-relaxed text-center md:text-right">
+                            "De l’installation à l’optimisation énergétique, nous intervenons sur l’ensemble du cycle de vie de vos systèmes pour garantir performance et durabilité."
+                        </p>
+                    </div>
                 </div>
 
-                {/* Services list */}
-                <div className="space-y-0">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
                     {services.map((service, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.08 }}
-                            className="group grid grid-cols-12 gap-4 items-start py-8 border-b border-[#4ADE80]/10 hover:border-[#4ADE80]/30 transition-all cursor-default"
+                            className="group relative h-full flex flex-col pt-8 px-6 border border-transparent hover:border-secondary transition-colors duration-500 rounded-sm"
                         >
-                            {/* Numéro */}
-                            <div className="col-span-2 md:col-span-1">
-                                <span
-                                    className="text-[#6B8F73] text-sm group-hover:text-[#4ADE80] transition-colors"
-                                    style={{ fontFamily: 'var(--font-mono)' }}
-                                >
-                                    {service.num}
-                                </span>
-                            </div>
-
                             {/* Label */}
-                            <div className="hidden md:flex col-span-2 items-center">
-                                <span
-                                    className="text-[#6B8F73]/60 text-xs uppercase tracking-widest"
-                                    style={{ fontFamily: 'var(--font-mono)' }}
-                                >
+                            <div className="mb-8">
+                                <span className="text-gray-400 text-[10px] font-bold uppercase tracking-widest">
                                     {service.label}
                                 </span>
                             </div>
 
-                            {/* Titre */}
-                            <div className="col-span-7 md:col-span-4">
-                                <h3
-                                    className="text-2xl md:text-3xl font-black uppercase tracking-tight text-[#F0F7F2] group-hover:text-[#4ADE80] transition-colors duration-300"
-                                    style={{ fontFamily: 'var(--font-display)' }}
-                                >
+                            {/* Icon */}
+                            <div className="mb-6 text-primary opacity-80 group-hover:scale-105 group-hover:opacity-100 transition-all duration-300 origin-left">
+                                <service.icon size={36} strokeWidth={1.5} />
+                            </div>
+
+                            <div className="flex flex-col flex-grow">
+                                <h3 className="text-xl font-bold mb-4 text-primary uppercase tracking-tight group-hover:text-secondary transition-colors">
                                     {service.title}
                                 </h3>
-                            </div>
-
-                            {/* Description */}
-                            <div className="col-span-12 md:col-span-4 pl-0 md:pl-4">
-                                <p
-                                    className="text-[#6B8F73] text-sm leading-relaxed"
-                                    style={{ fontFamily: 'var(--font-mono)' }}
-                                >
+                                <p className="text-gray-500 text-sm leading-relaxed mb-6 font-medium">
                                     {service.description}
                                 </p>
-                            </div>
 
-                            {/* Arrow */}
-                            <div className="hidden md:flex col-span-1 justify-end items-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <span className="text-[#4ADE80] text-xl">→</span>
+                                <div className="mt-auto pt-6 flex items-center justify-between text-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest">Voir le détail</span>
+                                    <Wind size={14} />
+                                </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
-                </div>
-
-                {/* CTA */}
-                <div className="mt-12 flex justify-end">
-                    <Link
-                        href="/contact"
-                        className="group flex items-center gap-4 text-[#F0F7F2]/60 hover:text-[#4ADE80] transition-colors"
-                    >
-                        <span
-                            className="text-xs uppercase tracking-[0.2em]"
-                            style={{ fontFamily: 'var(--font-mono)' }}
-                        >
-                            Demander un audit
-                        </span>
-                        <span className="w-12 h-px bg-current" />
-                        <span className="text-lg">→</span>
-                    </Link>
                 </div>
             </div>
         </section>
