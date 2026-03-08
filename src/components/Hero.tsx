@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { Wind } from "lucide-react";
 import Image from "next/image";
 
@@ -30,31 +31,32 @@ export default function Hero() {
                 >
                     <div className="inline-block border-l-2 border-surface/50 pl-6 md:mx-0 mx-auto">
                         <span className="text-surface font-mono tracking-widest uppercase text-xs md:text-sm block mb-2 opacity-90">
-                            Ingénierie Aéraulique Suisse
+                            Maintenance Pro
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-black tracking-tight leading-tight">
-                            SWISS<br />
-                            AIR QUALITY.
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight uppercase text-left">
+                            Maintenance<br />
+                            Ventilation<br />
+                            <span className="text-surface text-3xl md:text-5xl lg:text-6xl">& CVC</span>
                         </h1>
                     </div>
 
-                    <p className="text-lg md:text-xl text-white/90 max-w-lg font-light leading-relaxed mx-auto md:mx-0">
-                        Conception, installation et optimisation de systèmes de ventilation pour les régies, industries et particuliers.
+                    <p className="text-lg md:text-xl text-white/90 max-w-lg font-light leading-relaxed mx-auto md:mx-0 text-left">
+                        Contrats de maintenance, nettoyage des réseaux, remplacement de filtres et dépannage rapide pour restaurants, hôtels, commerces, régies et industries.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto">
-                        <a
-                            href="#contact"
+                        <Link
+                            href="/contact"
                             className="w-full sm:w-auto px-8 py-4 bg-surface text-primary font-bold uppercase tracking-widest hover:bg-white transition-all text-center text-sm"
                         >
-                            Étude de projet
-                        </a>
-                        <a
-                            href="#services"
+                            Demander un devis
+                        </Link>
+                        <Link
+                            href="/contact"
                             className="w-full sm:w-auto px-8 py-4 border border-surface text-surface font-bold uppercase tracking-widest hover:bg-surface hover:text-primary transition-all text-center text-sm"
                         >
-                            Nos solutions
-                        </a>
+                            Planifier une visite
+                        </Link>
                     </div>
                 </motion.div>
 
@@ -74,12 +76,12 @@ export default function Hero() {
                             <div className="w-64 h-64 bg-secondary/30 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/5">
                                 <div className="text-center">
                                     <Wind size={48} className="text-surface mx-auto mb-4 opacity-60" />
-                                    <span className="block text-xl font-bold tracking-tighter text-white/90">PREMIUM<br />FLOW</span>
+                                    <span className="block text-xl font-bold tracking-tighter text-white/90">MAINTENANCE<br />PRO</span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Floating Badges - More Discrete */}
+                        {/* Floating Badges */}
                         <motion.div
                             animate={{ y: [0, -5, 0] }}
                             transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
@@ -93,7 +95,23 @@ export default function Hero() {
                             transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
                             className="absolute bottom-12 left-4 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2 rounded-sm"
                         >
-                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Durabilité</span>
+                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Hygiène</span>
+                        </motion.div>
+
+                        <motion.div
+                            animate={{ x: [0, 5, 0] }}
+                            transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.5 }}
+                            className="absolute top-1/4 left-0 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2 rounded-sm"
+                        >
+                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">SLA</span>
+                        </motion.div>
+
+                        <motion.div
+                            animate={{ x: [0, -5, 0] }}
+                            transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 1.5 }}
+                            className="absolute bottom-1/4 right-0 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-2 rounded-sm"
+                        >
+                            <span className="text-[10px] font-bold uppercase text-surface tracking-wide">Rapport</span>
                         </motion.div>
                     </div>
                 </motion.div>

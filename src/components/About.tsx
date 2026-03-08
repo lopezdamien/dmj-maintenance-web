@@ -13,7 +13,7 @@ export default function About() {
     ];
 
     return (
-        <section id="about" className="py-32 bg-white relative overflow-hidden text-secondary">
+        <section id="about" className="py-16 md:py-32 bg-white relative overflow-hidden text-secondary">
             <div className="container mx-auto px-4 md:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     {/* Image Side - Technical Frame */}
@@ -33,7 +33,7 @@ export default function About() {
                             </div>
 
                             {/* 30 Years Badge - Minimalist */}
-                            <div className="absolute -top-6 -left-6 bg-primary text-white p-6 shadow-none border border-white/20 z-20">
+                            <div className="absolute -top-4 -left-4 md:-top-6 md:-left-6 bg-primary text-white p-5 md:p-6 shadow-none border border-white/20 z-20">
                                 <div className="text-4xl font-black leading-none font-mono tracking-tighter">30</div>
                                 <div className="text-[10px] font-bold uppercase tracking-widest mt-2 opacity-90">Ans d'Excellence</div>
                             </div>

@@ -9,8 +9,8 @@ const ibmPlexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "DMJ Ventilation | Expertise & Qualité Suisse",
-  description: "DMJ Ventilation : 30 ans d'expertise en ventilation à Versoix. Installation, nettoyage et maintenance pour régies, luxe et collectivités.",
+  title: "DMJ Maintenance | Contrats & Nettoyage CVC",
+  description: "DMJ Maintenance : Maintenance, nettoyage des réseaux et remplacement de filtres de ventilation pour restaurants, hôtels et commerces.",
 };
 
 export default function RootLayout({

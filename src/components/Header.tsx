@@ -2,21 +2,24 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 
 const navLinks = [
-    { name: "Accueil", href: "#" },
-    { name: "À Propos", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Réalisations", href: "#references" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil", href: "/" },
+    { name: "Contrats", href: "/contrats" },
+    { name: "Interventions", href: "/interventions" },
+    { name: "Méthode", href: "/methode" },
+    { name: "Références", href: "/references" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,36 +42,48 @@ export default function Header() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                     <span className="text-xl md:text-2xl font-bold tracking-tighter uppercase">
-                        DMJ<span className="text-surface">.Ventilation</span>
+                        DMJ<span className="text-surface">.Maintenance</span>
                     </span>
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-xs md:text-sm font-semibold uppercase tracking-widest hover:text-surface/80 transition-colors relative group"
-                        >
-                            {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-surface transition-all group-hover:w-full duration-300" />
-                        </Link>
-                    ))}
+                    {navLinks.map((link) => {
+                        const isActive = link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                        return (
+                            <Link
+                                key={link.name}
+                                href={link.href}
+                                className="text-xs md:text-sm font-semibold uppercase tracking-widest hover:text-surface/80 transition-colors relative group"
+                            >
+                                {link.name}
+                                <span className={clsx(
+                                    "absolute -bottom-1 left-0 h-0.5 bg-surface transition-all duration-300",
+                                    isActive ? "w-full" : "w-0 group-hover:w-full"
+                                )} />
+                            </Link>
+                        );
+                    })}
 
-                    <Link
-                        href="#contact"
-                        className="flex items-center gap-2 px-6 py-2 border border-surface text-surface font-bold uppercase tracking-wide text-xs hover:bg-surface hover:text-primary transition-all rounded-md"
-                    >
-                        <Phone size={16} />
-                        <span>Devis Gratuit</span>
-                    </Link>
+                    <div className="flex flex-col items-center gap-1">
+                        <Link
+                            href="/contact"
+                            className="flex items-center gap-2 px-6 py-2 border border-surface text-surface font-bold uppercase tracking-wide text-xs hover:bg-surface hover:text-primary transition-all rounded-md"
+                        >
+                            <Phone size={16} />
+                            <span>Devis Gratuit</span>
+                        </Link>
+                        <Link href="/contact" className="text-[10px] text-white/70 hover:text-surface transition-colors tracking-widest uppercase font-semibold">
+                            Urgence 24/7
+                        </Link>
+                    </div>
                 </nav>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden p-2 text-accent hover:bg-white/10 rounded"
+                    className="md:hidden p-2 text-white hover:bg-white/10 rounded"
                     onClick={() => setIsMobileMenuOpen(true)}
+                    aria-label="Ouvrir le menu"
                 >
                     <Menu size={24} />
                 </button>
@@ -86,11 +101,12 @@ export default function Header() {
                     >
                         <div className="p-5 flex justify-between items-center border-b border-white/10 h-20">
                             <span className="text-2xl font-bold text-white uppercase tracking-tighter">
-                                DMJ<span className="text-surface">.Ventilation</span>
+                                DMJ<span className="text-surface">.Maintenance</span>
                             </span>
                             <button
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="p-2 text-white hover:text-surface transition-colors rounded-full hover:bg-white/10"
+                                aria-label="Fermer le menu"
                             >
                                 <X size={28} />
                             </button>
@@ -111,12 +127,20 @@ export default function Header() {
                             <div className="w-12 h-px bg-white/20 my-4"></div>
 
                             <Link
-                                href="#contact"
+                                href="/contact"
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="px-8 py-4 bg-surface text-primary font-bold text-lg uppercase tracking-wider hover:bg-white transition-colors flex items-center gap-3 w-full max-w-xs justify-center rounded-sm shadow-lg"
                             >
                                 <Phone size={20} />
-                                Contactez-nous
+                                Devis Gratuit
+                            </Link>
+
+                            <Link
+                                href="/contact"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="text-sm text-white/70 hover:text-surface transition-colors tracking-widest uppercase font-bold mt-2"
+                            >
+                                Urgence 24/7
                             </Link>
                         </nav>
                     </motion.div>
