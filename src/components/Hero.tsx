@@ -37,7 +37,7 @@ export default function Hero() {
                     </div>
 
                     <p className="text-base md:text-lg text-white/85 max-w-lg font-light leading-relaxed">
-                        La réglementation impose des obligations strictes d'entretien et de contrôle des installations CVC. Nous appliquons les normes en vigueur — RSEE, OCOSP, directives cantonales — pour garantir la conformité légale, la sécurité des occupants et la performance durable de vos équipements.
+                        Conformité légale, sécurité garantie, performance durable — chaque intervention respecte les normes qui protègent votre activité.
                     </p>
 
                     <div>
