@@ -1,36 +1,16 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Avantages from "@/components/Avantages";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Realisations from "@/components/Realisations";
+import References from "@/components/References";
+import SIGPartnership from "@/components/SIGPartnership";
+import Testimonials from "@/components/Testimonials";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { ArrowRight, Users, HelpCircle, Mail, Wrench } from "lucide-react";
-
-const ctaLinks = [
-    {
-        icon: Wrench,
-        label: "Comment nous travaillons",
-        description: "Qui nous sommes, notre process en 5 étapes et nos certifications.",
-        href: "/comment-nous-travaillons",
-    },
-    {
-        icon: Users,
-        label: "Nos clients",
-        description: "Régies, hôtellerie, restauration, retail, industrie — découvrez nos références.",
-        href: "/nos-clients",
-    },
-    {
-        icon: HelpCircle,
-        label: "FAQ",
-        description: "Pourquoi entretenir ses gaines ? Quelles obligations légales en Suisse ?",
-        href: "/faq",
-    },
-    {
-        icon: Mail,
-        label: "Contact",
-        description: "Demandez un devis ou planifiez une visite technique.",
-        href: "/contact",
-    },
-];
+import { ArrowRight, Phone } from "lucide-react";
 
 export default function Home() {
     return (
@@ -38,38 +18,42 @@ export default function Home() {
             <Header />
             <Hero />
             <Avantages />
+            <About />
+            <Services />
+            <Realisations />
+            <References />
+            <SIGPartnership />
+            <Testimonials />
 
-            {/* Navigation CTA strip */}
-            <section className="py-20 bg-gray-50 border-t border-gray-100">
-                <div className="container mx-auto px-6 md:px-8">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {ctaLinks.map((item) => (
-                            <Link
-                                key={item.href}
-                                href={item.href}
-                                className="group bg-white border border-gray-200 p-8 hover:border-primary hover:shadow-lg transition-all flex flex-col gap-5"
-                            >
-                                <div className="w-12 h-12 bg-gray-50 group-hover:bg-primary/10 border border-gray-100 group-hover:border-primary/20 flex items-center justify-center transition-colors">
-                                    <item.icon className="text-primary" size={22} />
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="font-black text-primary uppercase tracking-tight text-lg mb-2">
-                                        {item.label}
-                                    </h3>
-                                    <p className="text-gray-500 text-sm font-light leading-relaxed">
-                                        {item.description}
-                                    </p>
-                                </div>
-                                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">
-                                    <span>Découvrir</span>
-                                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                                </div>
-                            </Link>
-                        ))}
+            {/* CTA Banner */}
+            <section className="py-20 bg-white border-t border-gray-100">
+                <div className="container mx-auto px-6 md:px-8 text-center">
+                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-primary uppercase leading-tight mb-6">
+                        Besoin d'un entretien<br />ou d'une intervention ?
+                    </h2>
+                    <p className="text-gray-500 max-w-xl mx-auto mb-10 font-light leading-relaxed">
+                        Devis gratuit sous 24h. Pour les urgences, notre équipe est disponible 24h/24, 7j/7.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <Link
+                            href="/contact"
+                            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white font-bold uppercase tracking-widest hover:bg-secondary transition-all text-sm"
+                        >
+                            <span>Demander un devis</span>
+                            <ArrowRight size={16} />
+                        </Link>
+                        <a
+                            href="tel:+41227552255"
+                            className="inline-flex items-center gap-3 px-8 py-4 border border-primary text-primary font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-all text-sm"
+                        >
+                            <Phone size={16} />
+                            <span>+41 22 755 22 55</span>
+                        </a>
                     </div>
                 </div>
             </section>
 
+            <Contact />
             <Footer />
         </main>
     );

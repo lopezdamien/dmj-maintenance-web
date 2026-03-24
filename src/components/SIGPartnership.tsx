@@ -27,7 +27,7 @@ export default function SIGPartnership() {
 
                         <div className="space-y-6 md:space-y-8 text-base md:text-lg font-light leading-relaxed text-gray-200">
                             <p>
-                                Dans une démarche d’innovation et de responsabilité environnementale, <strong>DMJ Ventilation</strong> est partenaire des Services Industriels de Genève (SIG).
+                                Dans une démarche d’innovation et de responsabilité environnementale, <strong>DMJ Maintenance</strong> est partenaire des Services Industriels de Genève (SIG).
                             </p>
                             <p>
                                 Ce partenariat s’inscrit dans notre volonté commune de faire évoluer les installations de ventilation vers des solutions plus performantes, plus économiques et plus respectueuses de l’environnement.
